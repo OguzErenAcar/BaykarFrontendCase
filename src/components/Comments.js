@@ -1,0 +1,110 @@
+import { useRef, useState } from "react";
+import CommentItem from "./CommentItem";
+
+function Comments() {
+  const sliderItems = [
+    {
+      id: 0,
+      productName: "imgage",
+      comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+      name:"NAME0",
+      job:"JOB0" 
+    },
+    {
+      id: 1,
+      productName: "imgage",
+      comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+      name:"NAME1",
+      job:"JOB1" 
+    },
+    {
+      id: 2,
+      productName: "imgage",
+      comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+      name:"NAME2",
+      job:"JOB2" 
+    },
+    {
+      id: 3,
+      productName: "imgage",
+      comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+      name:"NAME3",
+      job:"JOB3" 
+    },
+    {
+      id: 4,
+      productName: "imgage",
+      comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+      name:"NAME4",
+      job:"JOB4" 
+    },
+    {
+      id: 5,
+      productName: "imgage",
+      comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+      name:"NAME5",
+      job:"JOB5" 
+    },
+  ]; 
+  const itemsRef = useRef(null);
+  //document içinde get element yerine kullanılabilr
+  const [isMouseDown, setisMouseDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setscrollLeft] = useState(0);
+  const [walk, setwalk] = useState(0);
+
+  let scrollTimeout;
+
+  const slider = () => {
+    const handleonMouseDown = (e) => {
+      console.log(e);
+      setisMouseDown(true);
+      setStartX(e.pageX - -itemsRef.current.offsetLeft);
+      setscrollLeft(
+        itemsRef.current.scrollLeft - itemsRef.current.offsetLeft * 2
+      );
+      clearTimeout(scrollTimeout);
+    };
+    const handleonMouseLeave = () => {
+      setisMouseDown(false);
+    };
+    const handleonMouseUp = () => {
+      setisMouseDown(false);
+    };
+    const handleonMouseMove = (e) => {
+      if (!isMouseDown) return;
+      e.preventDefault();
+      const x = e.pageX - itemsRef.current.offsetLeft;
+      setwalk(x - startX);
+      itemsRef.current.scrollLeft = scrollLeft - walk;
+    };
+
+    return (
+      <div
+        id="sample_item"
+        ref={itemsRef}
+        onMouseDown={handleonMouseDown}
+        onMouseLeave={handleonMouseLeave}
+        onMouseUp={handleonMouseUp}
+        onMouseMove={handleonMouseMove}
+      >
+        {sliderItems.map((item) => (
+          <div>
+            <div className="sample_img">
+              <div style={{ marginTop:30,boxShadow:"0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 0px 6px rgba(0, 0, 0, 0.07)",borderRadius:"20px",backgroundColor:"rgb(255 255 255)",width:384,height:430,marginRight:30}}>
+                <CommentItem productName={item.productName} comment={item.comment} name={item.name} job={item.job}></CommentItem>
+                </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+  return (
+    <div> 
+        <div className="slider">{slider()}</div> 
+    </div>
+  );
+}
+
+export default Comments;
