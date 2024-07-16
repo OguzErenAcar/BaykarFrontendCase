@@ -8,7 +8,7 @@ function TheyLoveus() {
         <div className="w-100">
           <div id="tittle" className="  d-flex justify-content-between">
             <h2>Because they love us</h2>
-            <div style={{width:"9%"}} className="d-flex   justify-content-between">
+            <div id="buttons" style={{width:"9%"}} className="  justify-content-between">
               <button>
                 {" "}
                 <svg

@@ -5,42 +5,42 @@ function Comments() {
   const sliderItems = [
     {
       id: 0,
-      productName: "imgage",
+      productName: "productname",
       comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
       name:"NAME0",
       job:"JOB0" 
     },
     {
       id: 1,
-      productName: "imgage",
+      productName: "productname",
       comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
       name:"NAME1",
       job:"JOB1" 
     },
     {
       id: 2,
-      productName: "imgage",
+      productName: "productname",
       comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
       name:"NAME2",
       job:"JOB2" 
     },
     {
       id: 3,
-      productName: "imgage",
+      productName: "productname",
       comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
       name:"NAME3",
       job:"JOB3" 
     },
     {
       id: 4,
-      productName: "imgage",
+      productName: "productname",
       comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
       name:"NAME4",
       job:"JOB4" 
     },
     {
       id: 5,
-      productName: "imgage",
+      productName: "productname",
       comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
       name:"NAME5",
       job:"JOB5" 

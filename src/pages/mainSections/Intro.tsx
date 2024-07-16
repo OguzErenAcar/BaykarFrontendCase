@@ -4,32 +4,35 @@ import { LuPlayCircle } from "react-icons/lu";
 
 function Intro() {
   return (
-    <div id="intro">
-      <div className=" pb-5 container  d-flex align-items-center justify-content-between">
-        <div>
-          <label>Collectible Sneakers</label>
-          <p>
+    <div id="intro"  >
+      <div id="introdiv" className="container">
+        <div  className="w-auto d-flex align-items-center ">
+        <div  >
+            <label id="tittle">Collectible Sneakers</label>
+          <label id="content">
             Sit elit feugiat turpis sed integer integer accumsan turpis. Sed
             suspendisse nec lorem mauris. Pharetra, eu imperdiet ipsum ultrices
             amet.
-          </p>
-          <div className="d-flex align-items-center">
-            <button id="btn1">Sign up now</button>
+          </label>
+          <div id="btndiv" className="d-flex align-items-center  mt-5">
+          <button id="btn1">Sign up now</button>
             <div>
-              <button id="btn2">
+              <button id="btn2" className="ms-4" >
                 <LuPlayCircle className="me-2" /> Watch Demo
               </button>
             </div>
           </div>
         </div>
-
-        <div>
-          <img className="" src="./assets/Col.png" alt="" />
+        
         </div>
+
+       <div id="shoesimgdiv" className="w-auto d-flex justify-content-center">
+          <img id="shoesimg" src="./assets/Col.png" alt="" />
+        </div> 
       </div>
-      <div className="mt-5 pb-5  container d-flex align-items-center justify-content-between">
+       <div id="nibhdiv" className="mt-5 pb-5  container   align-items-center justify-content-between">
         <IntroItem>
-          <div className="position-relative ">
+          <div id="icon" className="position-relative ">
           <svg style={{left:25}} className="position-absolute " width="57" height="39" viewBox="0 0 57 39" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path opacity="0.5" d="M3.07107 17.4973C-3.22858 11.1977 1.23308 0.42627 10.1421 0.42627H46.7107C55.6197 0.42627 60.0814 11.1977 53.7817 17.4973L35.4975 35.7816C31.5922 39.6868 25.2606 39.6868 21.3553 35.7816L3.07107 17.4973Z" fill="#0369A1"/>
 </svg>
@@ -43,7 +46,7 @@ function Intro() {
           </div>
         </IntroItem>
         <IntroItem>
-          <div className="position-relative ">
+          <div id="icon" className="position-relative ">
           <svg style={{left:25}} className="position-absolute " width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path opacity="0.5" d="M21.9283 3.07106C28.228 -3.22859 38.9994 1.23309 38.9994 10.1421L38.9994 29C38.9994 34.5229 34.5222 39 28.9994 39L10.1415 39C1.23244 39 -3.22922 28.2286 3.07043 21.9289L21.9283 3.07106Z" fill="#15803D"/>
 </svg>
@@ -59,12 +62,12 @@ function Intro() {
           </div>
         </IntroItem>
         <IntroItem>
-          <div className="position-relative ">
+          <div id="icon" className="position-relative ">
           <svg style={{left:25}} className="position-absolute " width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect opacity="0.5" x="0.000671387" width="45" height="45" rx="20" fill="#A21CAF"/>
 </svg>
 
-<svg width="65" height="64" viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg    width="65" height="64" viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M6.00002 53.3332V23.9998C6.00002 21.0543 8.38783 18.6665 11.3334 18.6665H54C56.9456 18.6665 59.3334 21.0543 59.3334 23.9998V53.3332C59.3334 56.2788 56.9456 58.6665 54 58.6665H11.3334C8.38783 58.6665 6.00002 56.2788 6.00002 53.3332Z" stroke="#78350F" stroke-width="1.5"/>
 <path d="M23.3334 6.6665L32.6667 15.9998L42 6.6665" stroke="#78350F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -72,7 +75,7 @@ function Intro() {
 
           </div>
         </IntroItem>
-      </div>
+      </div>  
     </div>
   );
 }

@@ -9,12 +9,12 @@ import Worldmap from './mainSections/Worldmap'
  function Main() {
   return (
     <div> 
-      <Intro/>
-      <Thebest/>
+      <Intro/> 
+      <Thebest/> 
       <WhyJoin/>
       <TheyLoveus/>
       <YourCollection/>
-      <Worldmap/>
+        <Worldmap/>   
     </div>
   )
 }

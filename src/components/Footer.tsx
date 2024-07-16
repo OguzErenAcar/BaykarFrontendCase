@@ -5,9 +5,9 @@ function Footer() {
   return (
     <div className="text-white" style={{ backgroundColor:"#0f172a"  }}>
       <div id="footer" className="container">
-        <div id="footertop" className="d-flex align-items-center ">
+        <div id="footertop" className="d-flex pt-5 ">
           <div id="footergrid" className="w-75 row">
-            <div className="col-4 row">
+            <div className="col-12 col-md-4 row">
               <div id="footertittle">Product</div>
               <h6>Pricing</h6>
               <h6>Overview</h6>
@@ -15,7 +15,7 @@ function Footer() {
               <h6>Accessibility</h6>
               <h6>Five</h6> 
             </div>
-            <div className="col-4 row">
+            <div className="col-12 col-md-4 row">
               <div id="footertittle">Solutions</div>
               <h6>Brainstorming</h6>
               <h6>Ideation</h6>
@@ -23,7 +23,7 @@ function Footer() {
               <h6>Research</h6>
               <h6>Design</h6> 
             </div>
-            <div className="col-4 row">
+            <div className="col-12 col-md-4 row">
               <div id="footertittle">Support</div>
               <h6>Contact Us</h6>
               <h6>Developers</h6>

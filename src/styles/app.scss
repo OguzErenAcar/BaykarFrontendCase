@@ -2,143 +2,7 @@
 body {
   background-color: #fffbec;
 }
-#intro {
-  background-image: url("./../../public/assets/Rectangle.png");
-  background-size: cover; /* <------ */
-  background-position: right; /* optional, center the image */
-  label { 
-    /* Heading/1 M */
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 800;
-    font-size: 72px;
-    line-height: 110%;
-    /* or 79px */
-
-    /* Blue Gray/900 */
-    color: #0f172a;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
-  }
-  p {
-    /* Paragraph */
-
-    width: 714px;
-    height: 58px;
-
-    /* Body/L */
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 160%;
-    /* or 29px */
-
-    /* Blue Gray/900 */
-    color: #0f172a;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
-  }
-  #btn1 {
-    /* Button Text */
-
-    width: 115px;
-    height: 24px;
-
-    /* Button/L */
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    /* identical to box height, or 120% */
-    letter-spacing: 0.5px;
-
-    /* Amber/900 */
-    color: #78350f;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-
-    /* Button */
-    background-color: #fffbec;
-    box-sizing: border-box;
-
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-
-    width: 179px;
-    height: 56px;
-
-    /* Amber/900 */
-    border: 2px solid #78350f;
-    border-radius: 8px;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-  }
-  #btn2 {
-    /* Button Text */
-
-    width: 115px;
-    height: 24px;
-
-    /* Button/L */
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    /* identical to box height, or 120% */
-    letter-spacing: 0.5px;
-
-    /* Amber/900 */
-    color: #78350f;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-
-    /* Button */
-    background-color: #fffbec;
-    box-sizing: border-box;
-
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-
-    width: 179px;
-    height: 56px;
-
-    /* Amber/900 */
-    border: none;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-  }
-}
+$limit: 800px;
 #navi {
   height: 96px;
   label {
@@ -152,8 +16,14 @@ body {
   }
 
   #list {
-    position: relative;
-    right: 0px;
+    @media (min-width: $limit) {
+      position: relative;
+      right: 0px;
+      display: flex;
+    }
+    @media (max-width: $limit) {
+      display: none;
+    }
   }
   a {
     margin-left: 30px;
@@ -181,7 +51,16 @@ body {
     order: 1;
     flex-grow: 0;
   }
-  button {
+  #menubtn {
+    @media (min-width: $limit) {
+      display: none;
+    }
+    @media (max-width: $limit) {
+      display: absolute;
+      right: 0;
+    }
+  }
+  #signupbtn {
     background-color: #fffbec;
     position: relative;
     color: #78350f;
@@ -211,10 +90,114 @@ body {
   }
 }
 
+#intro {
+  background-image: url("./../../public/assets/Rectangle.png");
+  background-size: cover; /* <------ */
+  background-position: right; /* optional, center the image */
+  #introdiv {
+    @media (min-width: $limit) {
+      display: flex;
+    }
+  }
+  #tittle {
+    @media (max-width: $limit) {
+      text-align: center;
+    }
+    display: block;
+    /* Heading/1 M */
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 72px;
+    line-height: 110%;
+    /* or 79px */
+
+    /* Blue Gray/900 */
+    color: #0f172a;
+  }
+  #content {
+    /* Body/L */
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+    /* or 29px */
+
+    /* Blue Gray/900 */
+    color: #0f172a;
+    display: block;
+    margin-top: 30px;
+  }
+  #btn1 {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+    letter-spacing: 0.5px;
+
+    /* Amber/900 */
+    color: #78350f;
+
+    /* Button */
+    background-color: #fffbec;
+    box-sizing: border-box;
+
+    width: 179px;
+    height: 56px;
+
+    /* Amber/900 */
+    border: 2px solid #78350f;
+    border-radius: 8px;
+    background-color: #ffffff00;
+  }
+  #btn2 {
+    /* Button/L */
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+    letter-spacing: 0.5px;
+
+    /* Amber/900 */
+    color: #78350f;
+    /* Button */
+    background-color: #fffbec;
+    box-sizing: border-box;
+
+    width: 179px;
+    height: 56px;
+    background-color: #ffffff00;
+    /* Amber/900 */
+    border: none;
+  }
+
+  #btndiv {
+    @media (max-width: $limit) {
+      justify-content: center;
+    }
+  }
+  #nibhdiv {
+    @media (min-width: $limit) {
+      display: flex;
+    }
+  }
+
+  #IntroItem {
+  }
+  #icon {
+    @media (max-width: $limit) {
+    }
+  }
+}
+
 #thebestcont {
   background-color: #0f172a;
-  color: white;
-  height: 776px;
+  color: white; 
   h3 {
     /* Heading/2 */
     font-family: "Roboto";
@@ -244,21 +227,10 @@ body {
     /* White */
     color: #ffffff;
 
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-
-    /* Button */
+    
     background-color: #0f172a;
     box-sizing: border-box;
-
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 24px;
+ 
 
     width: 233px;
     height: 64px;
@@ -266,11 +238,7 @@ body {
     /* White */
     border: 2px solid #ffffff;
     border-radius: 8px;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+ 
   }
 
   #thebest {
@@ -284,10 +252,14 @@ body {
       z-index: 1;
       box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07);
       box-shadow: 0px 25px 50px -12px rgba(255, 255, 255, 0.25);
-
-      height: 500px;
+      padding-bottom: 30px;
+      margin-bottom: 30px;
       width: 30%;
-      #productdiv {
+      border-radius: 10px;
+      @media (max-width: $limit) {   
+        width: 100%;
+      }  
+      #productdiv { 
         background-color: #0e1628;
         button {
           /* Button */
@@ -340,6 +312,32 @@ body {
       }
     }
   }
+
+  .thebestmin { 
+      @media (max-width: $limit) { 
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+      }  
+      @media (min-width: $limit) {
+        display:flex;
+         h3{
+          position: absolute;
+        }
+        button{
+          position: absolute; 
+          right: 0px;
+        }
+      } 
+  }
+
+  #productsdiv{
+
+    @media (max-width: $limit) {  
+      flex-direction: column;
+      width: 100%;
+    }  
+  }
 }
 
 #Deco {
@@ -348,11 +346,11 @@ body {
   width: 50%;
 }
 
-#whycoincontent {
-  height: 450px;
+#whyjoincontent { 
   background: rgba(255, 255, 255, 0.4);
   border-radius: 50px;
-
+  padding-top: 60px;
+  padding-bottom: 60px;
   box-shadow: 0px 20px 25px -5px rgba(0, 0, 0, 0.1),
     0px 0px 10px rgba(0, 0, 0, 0.07);
   border-radius: 30px;
@@ -394,6 +392,48 @@ body {
     order: 2;
     flex-grow: 0;
   }
+
+  
+
+  @media (max-width: $limit) {  
+    flex-direction: column;
+    width: 100%;
+  } 
+  h1{
+    @media (max-width: $limit) {  
+      text-align: center;
+    }  
+  }
+  #btndiv{
+    @media (max-width: $limit) {   
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  } 
+  #whyjointop{
+    @media (min-width: $limit) {   
+      width: 50%;
+    }  
+  }
+  #whyjoinbot{
+    @media (min-width: $limit) {   
+      width: 50%;
+    }  
+  }
+  #whyjointop{
+    @media (max-width: $limit) {   
+      width: 80%;
+    }  
+  }
+  #whyjoinbot{
+    @media (max-width: $limit) {   
+      margin-top: 50px;
+      width: 100%;
+    }  
+  }
+
+
 }
 #theyloveus {
   #tittle {
@@ -504,11 +544,24 @@ body {
     line-height: 22.4px;
     text-align: left;
   }
+
+#buttons{
+  @media (min-width: $limit) {   
+    display: flex; 
+  } 
+  @media (max-width: $limit) {   
+    display: none; 
+  } 
+
+}
+
+
 }
 
 #yourcollection {
   #tittle {
     //styleName: Heading/2;
+    margin-top: 50px;
     font-family: Roboto;
     font-size: 56px;
     font-weight: 800;
@@ -556,6 +609,7 @@ body {
     line-height: 24px;
     letter-spacing: 0.5px;
     text-align: left;
+    
   }
 
   #images {
@@ -563,6 +617,10 @@ body {
       position: absolute;
       width: 730px;
       z-index: 0;
+      @media (max-width: $limit) {   
+        width: 500px;
+
+      } 
     }
     #img2 {
       position: absolute;
@@ -570,6 +628,10 @@ body {
       top: 80px;
       left: 80px;
       z-index: 1;
+      @media (max-width: $limit) {   
+        width: 500px;
+
+      } 
     }
     #img3 {
       width: 350px;
@@ -577,14 +639,36 @@ body {
       right: 0px;
       position: absolute;
       z-index: 2;
+      @media (max-width: $limit) {   
+        right: -220px;
+        width: 200px;
+        
+      } 
     }
+  }
+
+
+  #contentdiv{ 
+    @media (min-width: $limit) {    
+      display: flex;
+    }   
+      @media (max-width: $limit) {   
+        margin-top: 120px;
+        flex-direction: column;
+        display: none;
+      }   
+  }
+  #buttonlistcontdiv{ 
+    @media (min-width: $limit) {   
+      flex-direction: column;
+    }  
   }
 }
 
-#worldmap { 
+#worldmap {
   #shoesItem {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     height: 255px;
     z-index: 3;
     width: 220px;
@@ -599,7 +683,7 @@ body {
       z-index: -1;
       padding: 10px;
       bottom: 0px;
-      position: absolute; 
+      position: absolute;
       background-color: #c5cad3;
       border-radius: 10px;
 
@@ -646,21 +730,44 @@ body {
     font-weight: 500;
     line-height: 17.6px;
     text-align: left;
+    @media (max-width: $limit) {   
+      text-align: center;
+      margin-top: 10px;
+    } 
   }
-  #footertop {
-    height: 368px;
+  #footertop { 
     border-bottom: solid rgb(82, 82, 82);
     border-width: 0.01em;
+    @media (max-width: $limit) {   
+      align-items: center; 
+      flex-direction: column;  
+        text-align: center;
+        h6{
+          margin-top: 10px;
+        }
+      
+    } 
+    @media (min-width: $limit) {    
+      align-items: center;
+    }
   }
-  #footergrid {
-    height: 272px;
+  #footergrid {  
+    @media (min-width: $limit) {    
+      height: 272px;
+    }
   }
 
   #footericons {
     height: 275px;
   }
   #footerbottom {
-    height: 96px;
+    @media (min-width: $limit) {    
+      height: 96px;
+
+    } 
+    @media (max-width: $limit) {    
+      flex-direction: column; 
+    } 
   }
   #Collers {
     //styleName: Body/M;
@@ -681,5 +788,9 @@ body {
       color: white;
       text-decoration: none;
     }
+    @media (max-width: $limit) {   
+      text-align: center; 
+      flex-direction: column; 
+    } 
   }
 }
