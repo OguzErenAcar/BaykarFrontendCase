@@ -1,6 +1,6 @@
 import React from "react";
 
-function shoesItem() {
+function ItemShoes() {
   return (
     <div id="shoesItem">
       <img src="./assets/shoes.png" alt="" />
@@ -11,4 +11,4 @@ function shoesItem() {
   );
 }
 
-export default shoesItem;
+export default ItemShoes;

@@ -3,11 +3,11 @@ body {
   background-color: #fffbec;
 }
 $limit: 800px;
+
 #navi {
   height: 96px;
   label {
     color: #78350f;
-    //styleName: Heading/5;
     font-family: Roboto;
     font-size: 32px;
     font-weight: 500;
@@ -29,24 +29,18 @@ $limit: 800px;
     margin-left: 30px;
     text-decoration: none;
 
-    /* Menu Item */
-
     width: 72px;
     height: 24px;
 
-    /* Button/M */
     font-family: "Roboto";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    /* identical to box height, or 150% */
     letter-spacing: 0.5px;
 
-    /* Amber/900 */
     color: #78350f;
 
-    /* Inside auto layout */
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -65,11 +59,8 @@ $limit: 800px;
     position: relative;
     color: #78350f;
 
-    /* Button */
-
     box-sizing: border-box;
 
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -79,21 +70,45 @@ $limit: 800px;
     width: 149px;
     height: 48px;
 
-    /* Amber/900 */
     border: 2px solid #78350f;
     border-radius: 8px;
 
-    /* Inside auto layout */
     flex: none;
     order: 5;
     flex-grow: 0;
+  }
+
+  .menu {
+    padding-top: 30px;
+    height: 100%;
+    position: fixed;
+    z-index: 4;
+    left: -300px;
+    top: 0;
+    width: 300px;
+    background-color: #0e1628;
+    transition: left 0.5s ease;
+    div {
+      row-gap: 30px;
+      flex-direction: column;
+    }
+    a {
+      color: white;
+    }
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .menu.active {
+    left: 0;
   }
 }
 
 #intro {
   background-image: url("./../../public/assets/Rectangle.png");
-  background-size: cover; /* <------ */
-  background-position: right; /* optional, center the image */
+  background-size: cover;
+  background-position: right;
   #introdiv {
     @media (min-width: $limit) {
       display: flex;
@@ -104,27 +119,22 @@ $limit: 800px;
       text-align: center;
     }
     display: block;
-    /* Heading/1 M */
+
     font-family: "Roboto";
     font-style: normal;
     font-weight: 800;
     font-size: 72px;
     line-height: 110%;
-    /* or 79px */
 
-    /* Blue Gray/900 */
     color: #0f172a;
   }
   #content {
-    /* Body/L */
     font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 160%;
-    /* or 29px */
 
-    /* Blue Gray/900 */
     color: #0f172a;
     display: block;
     margin-top: 30px;
@@ -135,44 +145,39 @@ $limit: 800px;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
-    /* identical to box height, or 120% */
+
     letter-spacing: 0.5px;
 
-    /* Amber/900 */
     color: #78350f;
 
-    /* Button */
     background-color: #fffbec;
     box-sizing: border-box;
 
     width: 179px;
     height: 56px;
 
-    /* Amber/900 */
     border: 2px solid #78350f;
     border-radius: 8px;
     background-color: #ffffff00;
   }
   #btn2 {
-    /* Button/L */
     font-family: "Roboto";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    /* identical to box height, or 120% */
+
     letter-spacing: 0.5px;
 
-    /* Amber/900 */
     color: #78350f;
-    /* Button */
+
     background-color: #fffbec;
     box-sizing: border-box;
 
     width: 179px;
     height: 56px;
     background-color: #ffffff00;
-    /* Amber/900 */
+
     border: none;
   }
 
@@ -188,57 +193,77 @@ $limit: 800px;
   }
 
   #IntroItem {
+    @media (max-width: $limit) {
+      text-align: center;
+    }
+    h5 {
+      @media (max-width: $limit) {
+        text-align: center;
+        padding-top: 20px;
+      }
+    }
   }
   #icon {
     @media (max-width: $limit) {
+      display: flex;
+      justify-content: center;
+    }
+
+    #iconpng {
+      @media (max-width: $limit) {
+        position: absolute;
+      }
+    }
+    #iconbg {
+      @media (min-width: $limit) {
+        position: absolute;
+      }
+      @media (max-width: $limit) {
+        position: relative;
+      }
+    }
+  }
+
+  #shoesimg {
+    @media (max-width: $limit) {
+      width: 75%;
     }
   }
 }
 
 #thebestcont {
   background-color: #0f172a;
-  color: white; 
+  color: white;
   h3 {
-    /* Heading/2 */
     font-family: "Roboto";
     font-style: normal;
     font-weight: 800;
     font-size: 56px;
-    /* identical to box height, or 62px */
 
-    /* White */
     color: #ffffff;
   }
   #signupbutton {
-    /* Button Text */
-
     width: 137px;
     height: 24px;
 
-    /* Button/XL */
     font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 24px;
-    /* identical to box height, or 100% */
+
     letter-spacing: 0.5px;
 
-    /* White */
     color: #ffffff;
 
-    
     background-color: #0f172a;
     box-sizing: border-box;
- 
 
     width: 233px;
     height: 64px;
 
-    /* White */
     border: 2px solid #ffffff;
     border-radius: 8px;
- 
   }
 
   #thebest {
@@ -256,38 +281,32 @@ $limit: 800px;
       margin-bottom: 30px;
       width: 30%;
       border-radius: 10px;
-      @media (max-width: $limit) {   
+      @media (max-width: $limit) {
         width: 100%;
-      }  
-      #productdiv { 
+      }
+      #productdiv {
         background-color: #0e1628;
         button {
-          /* Button */
-          /* Button Text */
           background-color: #0f172a;
           width: 82px;
           height: 24px;
 
-          /* Button/L */
           font-family: "Roboto";
           font-style: normal;
           font-weight: 500;
           font-size: 20px;
           line-height: 24px;
-          /* identical to box height, or 120% */
+
           letter-spacing: 0.5px;
 
-          /* White */
           color: #ffffff;
 
-          /* Inside auto layout */
           flex: none;
           order: 0;
           flex-grow: 0;
 
           box-sizing: border-box;
 
-          /* Auto layout */
           display: flex;
           flex-direction: row;
           justify-content: center;
@@ -297,11 +316,9 @@ $limit: 800px;
           width: 330.67px;
           height: 56px;
 
-          /* White */
           border: 2px solid #ffffff;
           border-radius: 8px;
 
-          /* Inside auto layout */
           flex: none;
           order: 0;
           flex-grow: 1;
@@ -313,30 +330,29 @@ $limit: 800px;
     }
   }
 
-  .thebestmin { 
-      @media (max-width: $limit) { 
-        margin-top: 30px;
-        display: flex;
-        flex-direction: column;
-      }  
-      @media (min-width: $limit) {
-        display:flex;
-         h3{
-          position: absolute;
-        }
-        button{
-          position: absolute; 
-          right: 0px;
-        }
-      } 
+  .thebestmin {
+    @media (max-width: $limit) {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+    @media (min-width: $limit) {
+      display: flex;
+      h3 {
+        position: absolute;
+      }
+      button {
+        position: absolute;
+        right: 0px;
+      }
+    }
   }
 
-  #productsdiv{
-
-    @media (max-width: $limit) {  
+  #productsdiv {
+    @media (max-width: $limit) {
       flex-direction: column;
       width: 100%;
-    }  
+    }
   }
 }
 
@@ -346,7 +362,7 @@ $limit: 800px;
   width: 50%;
 }
 
-#whyjoincontent { 
+#whyjoincontent {
   background: rgba(255, 255, 255, 0.4);
   border-radius: 50px;
   padding-top: 60px;
@@ -356,7 +372,6 @@ $limit: 800px;
   border-radius: 30px;
 
   li {
-    /* Body/XL */
     font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
@@ -367,13 +382,11 @@ $limit: 800px;
   }
 
   button {
-    /* Button */
     color: #78350f;
     margin-top: 50px;
     background-color: rgba(0, 0, 0, 0);
     box-sizing: border-box;
 
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -383,57 +396,51 @@ $limit: 800px;
     width: 179px;
     height: 56px;
 
-    /* Amber/900 */
     border: 2px solid #78350f;
     border-radius: 8px;
 
-    /* Inside auto layout */
     flex: none;
     order: 2;
     flex-grow: 0;
   }
 
-  
-
-  @media (max-width: $limit) {  
+  @media (max-width: $limit) {
     flex-direction: column;
     width: 100%;
-  } 
-  h1{
-    @media (max-width: $limit) {  
-      text-align: center;
-    }  
   }
-  #btndiv{
-    @media (max-width: $limit) {   
+  h1 {
+    @media (max-width: $limit) {
+      text-align: center;
+    }
+  }
+  #btndiv {
+    @media (max-width: $limit) {
       width: 100%;
       display: flex;
       justify-content: center;
     }
-  } 
-  #whyjointop{
-    @media (min-width: $limit) {   
-      width: 50%;
-    }  
   }
-  #whyjoinbot{
-    @media (min-width: $limit) {   
+  #whyjointop {
+    @media (min-width: $limit) {
       width: 50%;
-    }  
+    }
   }
-  #whyjointop{
-    @media (max-width: $limit) {   
+  #whyjoinbot {
+    @media (min-width: $limit) {
+      width: 50%;
+    }
+  }
+  #whyjointop {
+    @media (max-width: $limit) {
       width: 80%;
-    }  
+    }
   }
-  #whyjoinbot{
-    @media (max-width: $limit) {   
+  #whyjoinbot {
+    @media (max-width: $limit) {
       margin-top: 50px;
       width: 100%;
-    }  
+    }
   }
-
-
 }
 #theyloveus {
   #tittle {
@@ -443,15 +450,10 @@ $limit: 800px;
       font-weight: 800;
       font-size: 56px;
       line-height: 110%;
-      /* identical to box height, or 62px */
-
-      /* Blue Gray/900 */
       color: #0f172a;
     }
 
     button {
-      /* Button */
-
       box-sizing: border-box;
       padding-bottom: 3px;
       width: 48px;
@@ -502,26 +504,22 @@ $limit: 800px;
 
   #yellowbg {
     background-color: #fde68a;
-    width: 100%; /* Kutu genişliği: viewport genişliği */
+    width: 100%;
     height: 421px;
     position: absolute;
     z-index: -1;
   }
 
   #productname {
-    /* Zoomerr */
-    /* Heading/6 */
     font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 110%;
-    /* or 26px */
-    /* Blue Gray/600 */
+
     color: #475569;
   }
   #comment {
-    //styleName: Body/XXL;
     font-family: Roboto;
     font-size: 20px;
     font-weight: 400;
@@ -529,7 +527,6 @@ $limit: 800px;
     text-align: left;
   }
   #name {
-    //styleName: Body/L;
     font-family: Roboto;
     font-size: 18px;
     font-weight: 400;
@@ -537,7 +534,6 @@ $limit: 800px;
     text-align: left;
   }
   #job {
-    //styleName: Body/M;
     font-family: Roboto;
     font-size: 16px;
     font-weight: 400;
@@ -545,22 +541,18 @@ $limit: 800px;
     text-align: left;
   }
 
-#buttons{
-  @media (min-width: $limit) {   
-    display: flex; 
-  } 
-  @media (max-width: $limit) {   
-    display: none; 
-  } 
-
-}
-
-
+  #buttons {
+    @media (min-width: $limit) {
+      display: flex;
+    }
+    @media (max-width: $limit) {
+      display: none;
+    }
+  }
 }
 
 #yourcollection {
   #tittle {
-    //styleName: Heading/2;
     margin-top: 50px;
     font-family: Roboto;
     font-size: 56px;
@@ -569,7 +561,6 @@ $limit: 800px;
     text-align: left;
   }
   p {
-    //styleName: Body/L;
     padding-top: 20px;
     font-family: Roboto;
     font-size: 18px;
@@ -578,9 +569,6 @@ $limit: 800px;
     text-align: left;
   }
   button {
-    /* Button */
-
-    /* Auto layout */
     margin-bottom: 10px;
     display: flex;
     flex-direction: row;
@@ -590,26 +578,24 @@ $limit: 800px;
     width: 256px;
     height: 56px;
 
-    /* White */
     background: #ffffff;
-    /* Shadow/Dark/M */
+
     box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1),
       0px 0px 4px rgba(0, 0, 0, 0.07);
     border-radius: 8px;
     border: none;
-    /* Inside auto layout */
+
     flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 0;
-    //styleName: Button/L;
+
     font-family: Roboto;
     font-size: 20px;
     font-weight: 500;
     line-height: 24px;
     letter-spacing: 0.5px;
     text-align: left;
-    
   }
 
   #images {
@@ -617,10 +603,9 @@ $limit: 800px;
       position: absolute;
       width: 730px;
       z-index: 0;
-      @media (max-width: $limit) {   
+      @media (max-width: $limit) {
         width: 500px;
-
-      } 
+      }
     }
     #img2 {
       position: absolute;
@@ -628,10 +613,9 @@ $limit: 800px;
       top: 80px;
       left: 80px;
       z-index: 1;
-      @media (max-width: $limit) {   
+      @media (max-width: $limit) {
         width: 500px;
-
-      } 
+      }
     }
     #img3 {
       width: 350px;
@@ -639,29 +623,27 @@ $limit: 800px;
       right: 0px;
       position: absolute;
       z-index: 2;
-      @media (max-width: $limit) {   
+      @media (max-width: $limit) {
         right: -220px;
         width: 200px;
-        
-      } 
+      }
     }
   }
 
-
-  #contentdiv{ 
-    @media (min-width: $limit) {    
+  #contentdiv {
+    @media (min-width: $limit) {
       display: flex;
-    }   
-      @media (max-width: $limit) {   
-        margin-top: 120px;
-        flex-direction: column;
-        display: none;
-      }   
-  }
-  #buttonlistcontdiv{ 
-    @media (min-width: $limit) {   
+    }
+    @media (max-width: $limit) {
+      margin-top: 120px;
       flex-direction: column;
-    }  
+      display: none;
+    }
+  }
+  #buttonlistcontdiv {
+    @media (min-width: $limit) {
+      flex-direction: column;
+    }
   }
 }
 
@@ -687,7 +669,6 @@ $limit: 800px;
       background-color: #c5cad3;
       border-radius: 10px;
 
-      //styleName: Body/S;
       font-family: Roboto;
       font-size: 14px;
       font-weight: 400;
@@ -696,7 +677,6 @@ $limit: 800px;
     }
   }
   #headline1 {
-    //styleName: Heading/1 L;
     font-family: Roboto;
     font-size: 96px;
     font-weight: 800;
@@ -704,7 +684,6 @@ $limit: 800px;
     text-align: center;
   }
   #headline2 {
-    //styleName: Heading/2;
     font-family: Roboto;
     font-size: 56px;
     font-weight: 800;
@@ -714,7 +693,6 @@ $limit: 800px;
 }
 
 #footer {
-  //styleName: Body/M;
   font-family: Roboto;
   font-size: 16px;
   font-weight: 400;
@@ -722,7 +700,6 @@ $limit: 800px;
   text-align: left;
   color: rgba(226, 232, 240, 1);
   #footertittle {
-    //styleName: Subtitle/M;
     color: rgba(255, 255, 255, 1);
 
     font-family: Roboto;
@@ -730,29 +707,28 @@ $limit: 800px;
     font-weight: 500;
     line-height: 17.6px;
     text-align: left;
-    @media (max-width: $limit) {   
+    @media (max-width: $limit) {
       text-align: center;
       margin-top: 10px;
-    } 
+    }
   }
-  #footertop { 
+  #footertop {
     border-bottom: solid rgb(82, 82, 82);
     border-width: 0.01em;
-    @media (max-width: $limit) {   
-      align-items: center; 
-      flex-direction: column;  
-        text-align: center;
-        h6{
-          margin-top: 10px;
-        }
-      
-    } 
-    @media (min-width: $limit) {    
+    @media (max-width: $limit) {
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      h6 {
+        margin-top: 10px;
+      }
+    }
+    @media (min-width: $limit) {
       align-items: center;
     }
   }
-  #footergrid {  
-    @media (min-width: $limit) {    
+  #footergrid {
+    @media (min-width: $limit) {
       height: 272px;
     }
   }
@@ -761,16 +737,14 @@ $limit: 800px;
     height: 275px;
   }
   #footerbottom {
-    @media (min-width: $limit) {    
+    @media (min-width: $limit) {
       height: 96px;
-
-    } 
-    @media (max-width: $limit) {    
-      flex-direction: column; 
-    } 
+    }
+    @media (max-width: $limit) {
+      flex-direction: column;
+    }
   }
   #Collers {
-    //styleName: Body/M;
     font-family: Roboto;
     font-size: 16px;
     font-weight: 400;
@@ -778,7 +752,6 @@ $limit: 800px;
     text-align: left;
   }
   #bottomlist {
-    //styleName: Body/M;
     font-family: Roboto;
     font-size: 16px;
     font-weight: 400;
@@ -788,9 +761,9 @@ $limit: 800px;
       color: white;
       text-decoration: none;
     }
-    @media (max-width: $limit) {   
-      text-align: center; 
-      flex-direction: column; 
-    } 
+    @media (max-width: $limit) {
+      text-align: center;
+      flex-direction: column;
+    }
   }
 }

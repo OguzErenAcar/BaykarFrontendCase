@@ -1,15 +1,56 @@
-import React from "react";
+import React ,{useEffect, useState,useRef} from "react";
 import Comments from "../../components/Comments";
-function TheyLoveus() {
+function TheyLoveus() { 
+
+
+  const [Right,setRigh]=useState(0);
+  const [Left,setLeft]=useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  
+  const RighthandleMouseDown = () => {
+    if (intervalRef.current) return;
+       intervalRef.current = setInterval(() => {
+      setRigh(count=>count+1); 
+    }, 10);
+  };
+
+  const RighthandleMouseUp = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+      setRigh(count=>count-1); 
+
+    }
+  };
+
+
+  const LefthandleMouseDown = () => {
+    if (intervalRef.current) return;
+    intervalRef.current = setInterval(() => { 
+      setLeft(count=>count+1);  
+    }, 10);
+  };
+
+  const LefthandleMouseUp = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+      setLeft(count=>count-1); 
+
+    }
+  };
   return (
     <div id="theyloveus" className="position-relative" style={{ height: 732 }}>
               
       <div className=" container h-100 ">
         <div className="w-100">
-          <div id="tittle" className="  d-flex justify-content-between">
-            <h2>Because they love us</h2>
+          <div id="tittle" className=" mt-5 d-flex justify-content-between">
+            <h2 >Because they love us</h2>
             <div id="buttons" style={{width:"9%"}} className="  justify-content-between">
-              <button>
+              <button
+              onMouseDown={LefthandleMouseDown} 
+              onMouseUp={LefthandleMouseUp}
+              onMouseLeave={LefthandleMouseUp}>
                 {" "}
                 <svg
                   width="15"
@@ -31,7 +72,12 @@ function TheyLoveus() {
                   />
                 </svg>
               </button>
-              <button>
+              <button
+              
+              
+              onMouseDown={RighthandleMouseDown} 
+              onMouseUp={RighthandleMouseUp}
+              onMouseLeave={RighthandleMouseUp}>
                 {" "}
                 <svg
                   width="15"
@@ -59,7 +105,7 @@ function TheyLoveus() {
             <div id="yellowbg"></div>
           </div>
         </div>
-      <Comments></Comments>
+      <Comments left={Left} right={Right} />
       </div>
     </div>
   );

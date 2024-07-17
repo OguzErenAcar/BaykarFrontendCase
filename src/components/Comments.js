@@ -1,51 +1,57 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CommentItem from "./CommentItem";
 
-function Comments() {
+function Comments(  { left,right}) {
   const sliderItems = [
     {
       id: 0,
       productName: "productname",
-      comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      name:"NAME0",
-      job:"JOB0" 
+      comment:
+        "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+      name: "NAME0",
+      job: "JOB0",
     },
     {
       id: 1,
       productName: "productname",
-      comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      name:"NAME1",
-      job:"JOB1" 
+      comment:
+        "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+      name: "NAME1",
+      job: "JOB1",
     },
     {
       id: 2,
       productName: "productname",
-      comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      name:"NAME2",
-      job:"JOB2" 
+      comment:
+        "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+      name: "NAME2",
+      job: "JOB2",
     },
     {
       id: 3,
       productName: "productname",
-      comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      name:"NAME3",
-      job:"JOB3" 
+      comment:
+        "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+      name: "NAME3",
+      job: "JOB3",
     },
     {
       id: 4,
       productName: "productname",
-      comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      name:"NAME4",
-      job:"JOB4" 
+      comment:
+        "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+      name: "NAME4",
+      job: "JOB4",
     },
     {
       id: 5,
       productName: "productname",
-      comment: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      name:"NAME5",
-      job:"JOB5" 
+      comment:
+        "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+      name: "NAME5",
+      job: "JOB5",
     },
-  ]; 
+  ];
   const itemsRef = useRef(null);
   //document içinde get element yerine kullanılabilr
   const [isMouseDown, setisMouseDown] = useState(false);
@@ -54,6 +60,18 @@ function Comments() {
   const [walk, setwalk] = useState(0);
 
   let scrollTimeout;
+
+  useEffect(() => {
+    console.log("leftCounter")
+   itemsRef.current.scrollLeft=itemsRef.current.scrollLeft+10
+
+  }, [left]);
+ 
+  useEffect(() => {
+    console.log("rightCounter")
+   itemsRef.current.scrollLeft=itemsRef.current.scrollLeft-10
+
+  }, [right]);
 
   const slider = () => {
     const handleonMouseDown = (e) => {
@@ -65,18 +83,20 @@ function Comments() {
       );
       clearTimeout(scrollTimeout);
     };
+    const handleonMouseMove = (e) => {
+      if (!isMouseDown) return;
+      e.preventDefault();
+      const x = e.pageX - itemsRef.current.offsetLeft;
+      //console.log(x - startX)
+       setwalk(x - startX);
+      itemsRef.current.scrollLeft = scrollLeft - walk;
+    };
+
     const handleonMouseLeave = () => {
       setisMouseDown(false);
     };
     const handleonMouseUp = () => {
       setisMouseDown(false);
-    };
-    const handleonMouseMove = (e) => {
-      if (!isMouseDown) return;
-      e.preventDefault();
-      const x = e.pageX - itemsRef.current.offsetLeft;
-      setwalk(x - startX);
-      itemsRef.current.scrollLeft = scrollLeft - walk;
     };
 
     return (
@@ -91,9 +111,25 @@ function Comments() {
         {sliderItems.map((item) => (
           <div>
             <div className="sample_img">
-              <div style={{ marginTop:30,boxShadow:"0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 0px 6px rgba(0, 0, 0, 0.07)",borderRadius:"20px",backgroundColor:"rgb(255 255 255)",width:384,height:430,marginRight:30}}>
-                <CommentItem productName={item.productName} comment={item.comment} name={item.name} job={item.job}></CommentItem>
-                </div>
+              <div
+                style={{
+                  marginTop: 30,
+                  boxShadow:
+                    "0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 0px 6px rgba(0, 0, 0, 0.07)",
+                  borderRadius: "20px",
+                  backgroundColor: "rgb(255 255 255)",
+                  width: 384,
+                  height: 430,
+                  marginRight: 30,
+                }}
+              >
+                <CommentItem
+                  productName={item.productName}
+                  comment={item.comment}
+                  name={item.name}
+                  job={item.job}
+                ></CommentItem>
+              </div>
             </div>
           </div>
         ))}
@@ -101,8 +137,8 @@ function Comments() {
     );
   };
   return (
-    <div> 
-        <div className="slider">{slider()}</div> 
+    <div>
+      <div className="slider">{slider()}</div>
     </div>
   );
 }
