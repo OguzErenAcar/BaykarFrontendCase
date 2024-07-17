@@ -1,5 +1,6 @@
-import React ,{useEffect, useState,useRef} from "react";
-import Comments from "../../components/Comments";
+import React ,{useEffect, useState,useRef} from "react"; 
+import CommentsItems from "../../components/CommentsItems";
+ 
 function TheyLoveus() { 
 
 
@@ -105,7 +106,7 @@ function TheyLoveus() {
             <div id="yellowbg"></div>
           </div>
         </div>
-      <Comments left={Left} right={Right} />
+      <CommentsItems left={Left} right={Right} />
       </div>
     </div>
   );

@@ -1,7 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import CommentItem from "./CommentItem";
 
-function Comments(  { left,right}) {
+
+interface commentsProps{
+  left:number,
+  right:number
+
+}
+
+function CommentsItems(  { left,right}:commentsProps) {
   const sliderItems = [
     {
       id: 0,
@@ -52,14 +59,13 @@ function Comments(  { left,right}) {
       job: "JOB5",
     },
   ];
-  const itemsRef = useRef(null);
-  //document içinde get element yerine kullanılabilr
+  const itemsRef = useRef(document.createElement("div"))
   const [isMouseDown, setisMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setscrollLeft] = useState(0);
   const [walk, setwalk] = useState(0);
 
-  let scrollTimeout;
+  let scrollTimeout:number;
 
   useEffect(() => {
     console.log("leftCounter")
@@ -74,7 +80,7 @@ function Comments(  { left,right}) {
   }, [right]);
 
   const slider = () => {
-    const handleonMouseDown = (e) => {
+    const handleonMouseDown = (e:any) => {
       console.log(e);
       setisMouseDown(true);
       setStartX(e.pageX - -itemsRef.current.offsetLeft);
@@ -83,7 +89,7 @@ function Comments(  { left,right}) {
       );
       clearTimeout(scrollTimeout);
     };
-    const handleonMouseMove = (e) => {
+    const handleonMouseMove = (e:any) => {
       if (!isMouseDown) return;
       e.preventDefault();
       const x = e.pageX - itemsRef.current.offsetLeft;
@@ -143,4 +149,4 @@ function Comments(  { left,right}) {
   );
 }
 
-export default Comments;
+export default CommentsItems;
